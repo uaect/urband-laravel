@@ -1,7 +1,6 @@
 import React , {Component} from 'react';
 import { Link } from 'react-router-dom'
 import Carousel from "react-multi-carousel";
-import "react-multi-carousel/lib/styles.css";
 
 class Event extends React.Component{
 
@@ -122,8 +121,8 @@ class Event extends React.Component{
 					<div className="swiper-wrapper">
                        
 						<div className="swiper-slide">
-                        <ul>
-                    <Carousel responsive={responsive}>
+                     
+                    	<Carousel responsive={responsive}>
                         <li>
 							<div className="schedule-item">
 								<div className="schedule-thumb">
@@ -189,7 +188,7 @@ class Event extends React.Component{
                             
                             
                             </Carousel>
-                            </ul>
+                         
                         </div>   
                   
                     </div>        

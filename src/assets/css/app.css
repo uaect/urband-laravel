@@ -418,7 +418,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .tim-btn:hover {
-  color: #e43a90;
+  color: #f60038;
 }
 
 .tim-btn.tim-btn-bgt {
@@ -1895,27 +1895,49 @@ h1, h2, h3, h4, h5, h6 {
 
 #header-menu-magic-line li {
   display: inline-block;
-  margin: 0 20px;
-  padding: 28px 0;
 }
-
 #header-menu-magic-line li a {
   color: #fff;
   text-transform: uppercase;
   font-size: 17px;
+  margin: 0 20px;
+  padding: 28px 0;
+  position: relative;
+  transition: 0.3s cubic-bezier(0.55, 0, 0.1, 1);
+}
+.interactive:active {
+  transition: none;
+  color: #fff;
+  background: #000;
+}
+.in-array:before {
+  left: 100%;
+  transition: 0.3s cubic-bezier(0.55, 0, 0.1, 1);
+  content: '';
+  position: absolute;
+  height: 100%;
+  border-bottom: 2px solid red;
+  width: 0;
+  top: 0;
+}
+.in-array:hover::before {
+  border-bottom-color:red;
+  width: 100%;
+  top: 0;
+  transition-delay: 0.1s;
+  left: 0;
+}
+.in-array:hover ~ .in-array::before {
+  left: 0;
 }
 
-#header-menu-magic-line > li.active:before {
-  left: -6px;
+.selected[aria-current="page"]::before{
+  border-bottom-color:red;
+  left:0;
+  width:100%;
 }
 
-#header-menu-magic-line > li.active:after {
-  right: -5px;
-}
 
-#header-menu-magic-line > li.active:before, #header-menu-magic-line > li.active:after {
-  opacity: 1;
-}
 
 .headroom--pinned {
   -ms-transform: translateY(0);
@@ -1946,9 +1968,9 @@ h1, h2, h3, h4, h5, h6 {
   background: #000;
 }
 
-.header-magic-line-inner {
-  /*border-bottom: 1px solid #f60038;*/
-}
+/* .header-magic-line-inner {
+  border-bottom: 1px solid #f60038;
+} */
 
 .headroom--pinned.hide-topbar .header-magic-line-inner {
   border-bottom: 1px solid #fff;
@@ -2030,6 +2052,7 @@ h1, h2, h3, h4, h5, h6 {
 .banner-five .baneer-five-content .tim-slide-btn:hover {
   background: transparent;
 }
+
 
 @media (max-width: 1440px) {
   #header-menu-magic-line li {
@@ -8391,7 +8414,7 @@ div.jp-seeking-bg {
 }
 
 .album-filter-button.album-filter-button-two:after {
-  width: 90%;
+  width: 100%;
   left: 0;
 }
 
@@ -8426,8 +8449,9 @@ div.jp-seeking-bg {
 }
 
 .tim-album-items .grid-item {
-  width: 24.5%;
+  width: 24%;
   padding: 15px;
+  display: inline-block;
 }
 
 .tim-album-items .grid-item:before {
@@ -8559,7 +8583,7 @@ div.jp-seeking-bg {
 
 .tim-isotope.tim-isotope-2 .tim-album-item:before {
   position: absolute;
-  content: '';
+  /* content: ''; */
   left: 15px;
   bottom: 15px;
   right: 15px;
@@ -8818,6 +8842,36 @@ div.jp-seeking-bg {
 .exclusive-album-items .album-item:hover .icon {
   opacity: 1;
 }
+.album-filter-button.album-filter-button-two button {
+  height: auto;
+  width: auto;
+  line-height: 20px;
+  padding: 10px 15px;
+  border-radius: 8px;
+  border: 1px dashed #dedede;
+  margin-left: 90px;
+  -webkit-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  background: #fff;
+}
+.album-filter-button .rwt__tablist  {
+border:none;
+}
+.album-filter-button button:first-child {
+margin-left: 0 !important;
+}
+.rwt__tablist button[aria-selected="true"]{
+  background: #fff;
+  border-color: #e43a90;
+  border-style: solid;
+  border: 1px dashed #e43a90;
+}
+.album-filter-button .rwt__tab[aria-selected="true"]:after {
+  display: none;
+}
+
+
 
 @media (max-width: 1280px) {
   .album-filter-button {
@@ -8937,6 +8991,49 @@ div.jp-seeking-bg {
 }
 
 /*--------------- Single Album  ----------------*/
+
+.jp-album-me{
+  display: block;
+    position: relative;
+    padding-right: 20px;
+}
+.jp-album-me a {
+  display: block;
+  overflow: hidden;
+  white-space: nowrap;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 16px;
+  text-decoration: none;
+  outline: 0;
+  padding: 14px 0;
+  color:#333;
+}
+.jp-album-me a.jp-playlist-item-remove {
+    display: block;
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    top: 0;
+    right: 0;
+}
+.jp-playlist{
+  width:100%;
+  display:block;
+  margin-top: 2em;
+}
+.jp-playlist ul li {
+  display: block;
+  border-bottom: 1px solid #ebebeb;
+  padding: 5px 30px;
+}
+
+
+
+
+
+
 .single-album-info {
   -webkit-box-shadow: 0px 1px 17.85px 3.15px rgba(23, 28, 62, 0.05);
           box-shadow: 0px 1px 17.85px 3.15px rgba(23, 28, 62, 0.05);
@@ -10984,11 +11081,12 @@ div.jp-seeking-bg {
   float: right;
   width: 46px;
   height: 46px;
-  background: #fae4ee;
+  background: #f7dfe2;
   text-align: center;
   border-radius: 50px;
   line-height: 48px;
   position: relative;
+  color: #e01e36;
 }
 
 .single-related-album .single-related-prod-bottom .play-bottom i {
@@ -16141,4 +16239,193 @@ ul.products li.product-two .ajax_add_to_cart i {
   -webkit-transition: all 0.8s cubic-bezier(0, 1.09, 1, 1);
   -o-transition: all 0.8s cubic-bezier(0, 1.09, 1, 1);
   transition: all 0.8s cubic-bezier(0, 1.09, 1, 1);
+}
+/*--------------------------------------------------------------
+  ## what We do
+  --------------------------------------------------------------*/
+  .page-padd {
+    padding: 100px 0;
+}
+  .services-grid header {
+    position: relative;
+    height: 275px;
+    background-image: 
+	  linear-gradient(to right bottom, 
+     rgba(220, 30, 54, 0.8),
+     rgba(250, 92, 113, 0.8)),
+     url('../../media/concerts/4.jpg');
+  	
+  	background-size: cover;
+  	background-position: top;
+  	position: relative;
+    clip-path: polygon(
+      0 0,
+      100% 0,
+      100% 100%,
+      0 calc(100% - 5vw)
+    );
+    border-radius: 24px 24px 0px 0px;
+    /* change the calc height to a percentage height to get alternate responsive behavior*/
+  }
+  
+  h1 {
+    margin: 0;
+    padding: 100px 0;
+    font-size: 23px;
+    color: white;
+    text-align: center;
+  }
+  .services-grid{
+    margin-bottom: 30px;
+  }
+  .services-grid .content {
+    margin-top: -5vw;
+    padding: 41px;
+    height: 330px;
+    box-shadow: 13px 32px 36px -14px hsla(0, 0%, 70%, 0.3);
+    text-align: center;
+  }
+  .services-grid .content p {
+    margin-top: 5vw;
+    font-size: 14px;
+    line-height: 18px;
+    text-align: center;
+ 
+  }
+  .services-grid .content button{
+    padding: 5px 21px;
+    font-size: 16px;
+    margin-top: 0.5em;
+  }
+  .services-secton-two{
+    margin-top: 3em;
+  }
+
+  /*--------------------------------------------------------------
+  ## Clients
+  --------------------------------------------------------------*/
+  .page-head{
+    font-size: 2.5em;
+    font-weight: 600;
+    margin-bottom: 20px;
+    display: block;
+    width:100%;
+    text-transform: uppercase;
+  }
+  .client-Wrapper{
+    width: 100%;
+    display: block;
+    position: relative;
+  }
+  .client-Wrapper li{
+    display: inline-block;
+  }
+  .client-avathar{
+    width:100%;
+    text-align: center;
+    display:inline-block;
+    padding: 29px;
+    margin-top: 2em;
+    margin-bottom: 1em;
+  }
+  .client-avathar p{
+    font-size: 15px;
+    margin-top: 1em;
+    line-height: 27px;
+  }
+  .client-avathar .name{
+    font-size:17px;
+    font-weight: 600;
+    color: #f60038;
+  }
+  .quote{
+    position: absolute;
+    font-size:11em;
+    color: rgba(224, 30, 54,0.2);
+  }
+  .quote.left{
+    left:-81px;
+    top:-99px;
+  }
+  .quote.right{
+    right: -165px;
+    bottom: -65px;
+  }
+  .custom-dot-list-style button{
+     border-color: #f9d2d6;
+  }
+  .custom-dot-list-style .react-multi-carousel-dot--active button {
+    background: #f60038;
+}
+.custom-dot-list-style .react-multi-carousel-dot button:hover {
+  background: #f60038;
+}
+.client-list{
+  width:100%;
+}
+.client-list li {
+  width: 111px;
+  height: 111px;
+  align-items: center;
+  display: inline-flex;
+  justify-content: center;
+  margin-right: 1.7em;
+}
+.client-list li img{
+  -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+  filter: grayscale(100%);
+}
+  /*--------------------------------------------------------------
+  ## Gang
+  --------------------------------------------------------------*/
+.the-gang .coverflow__container__1P-xE{
+  background-color: transparent;
+}
+.the-gang .coverflow__figure__3bk_C{
+  backface-visibility: unset;
+}
+  /*--------------------------------------------------------------
+  ## About
+  --------------------------------------------------------------*/
+.artist-banner.about{
+  background: url("../../media/banner/3.jpg");
+}
+.tim-btn.hero {
+  border: 1px solid #000;
+  margin-top: 2em;
+}
+.black-bg {
+  background-color: #111111;
+  color: #ffffff;
+}
+.what-we-do-section {
+  position: relative;
+  background-size: cover;
+  background-position: center center;
+}
+.what-we-do-section .side-img {
+  background-image: url("../../media/about/what-we-do.jpg");
+}
+.side-img {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  background-position: center center;
+  background-size: cover;
+}
+.doing-item .doing-icon {
+  color: #fc427f;
+  font-size: 3.5rem;
+  line-height: 1;
+}
+.section-padding {
+  padding: 120px 0;
+}
+.doing-item + .doing-item {
+  margin-top: 45px;
+}
+.doing-item .doing-title {
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
