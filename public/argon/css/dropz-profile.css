@@ -1,0 +1,119 @@
+.profileimg-upload-wrap {
+	padding: 0;
+	padding-bottom: 2.5em;
+}
+.profileimg-upload-wrap button{
+	position: absolute;
+    top: 80px;
+    width: 100px;
+    height: 35px;
+    left: 87px;
+    width: 35px;
+    /*line-height: 30px;*/
+    padding: 0px !important;
+    z-index: 1001;
+    background: #555;
+    color: #fff;
+    border: 2px solid #fbfbfb;
+    box-sizing: border-box;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+}
+.profileimg-upload-wrap button i{
+    font-size: 19px;
+}
+.dropzone .dz-preview{
+	margin: 0;
+}
+.user-image-act{
+    position: absolute;
+    bottom: 15px;
+    left: 3.4%;
+}
+.user-image-act img{
+	height: 29px;
+    opacity: 0.8;
+}
+.tooltip-inner {
+	background-color: #333;
+	color: #fff;
+	font-weight: 300;
+    padding: 3px 7px;
+    font-size: 12px;
+}
+.tooltip .arrow:before {
+     border-top-color: #333;
+}
+.user-image-act.crop{
+	left: 6%;
+}
+.user-image-act.crop img{
+	height: 33px;
+}
+.user-image-act.remove{
+	left: 12%;
+}
+.user-image-act.remove img{
+	height: 33px;
+}
+
+
+.dz-remove,.crop{
+    background: #e4e4e4;
+    padding: 5px;
+    border-radius: 50%;
+    font-size: 18px !important;
+    color: rgba(0,0,0,.55) !important;
+    width: 28px;
+    height: 28px;
+    opacity: 0.7;
+    text-align: center !important;
+    line-height: 20px;
+    display: inline-block !important;
+    margin-top: 7px;
+    margin-right: 5px;
+}
+.dz-remove .fa,.crop .fa {
+    font-size: 18px;
+    color: rgba(0,0,0,.77);
+}
+.crop .fa{
+    color: rgba(0,0,0,.66);
+}
+.dropzone.profileimg-upload-wrap .dz-image{
+    margin-right: 1.5em;
+}
+.dropzone.profileimg-upload-wrap .dz-image a span.doc-view{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-size: 29px;
+    z-index: 1;
+    opacity: 0;
+    background: rgba(0,0,0,0.66);
+    transition: all ease-in-out 0.3s;
+    color: #fff;
+    vertical-align: middle;
+    text-align: center;
+}
+.dropzone.profileimg-upload-wrap .dz-image a span.doc-view i{
+    align-self: center;
+    margin: 0 auto;
+}
+.dropzone.profileimg-upload-wrap .dz-image a:hover span.doc-view{
+    opacity: 1;
+}
+.add-file-drop{
+    width: 52px;
+    margin-left: 2em;
+    margin-right: 0.5em;
+}
+.dz-default.dz-message{
+    margin-top: 3em;
+    margin-bottom: 0;
+}
+    
